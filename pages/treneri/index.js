@@ -1,4 +1,4 @@
-import { CardsGrid, H2, H1, HeadingWrapper } from "@src/atoms";
+import { CardsGrid, H2, H1, HeadingWrapper, XlWrapper } from "@src/atoms";
 import { TrainersList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
 
@@ -49,10 +49,12 @@ export default function Trainers() {
 			</div>
 
 			{/* Trainers Cards */}
-			<section className="mx-24">
-				<TrainersList
-				// trainers={trainers}
-				/>
+			<section>
+				<XlWrapper>
+					<TrainersList
+					// trainers={trainers}
+					/>
+				</XlWrapper>
 			</section>
 		</DynamicSite>
 	);

@@ -17,7 +17,8 @@
 	input:required + label::after {
 		content: " *";
 	}
-	.is-visited label {
+	.is-visited label,
+	.visited label {
 		@apply transform top-0 bg-white -translate-y-1/2 text-sm;
 	}
 
@@ -43,9 +44,13 @@
 		@apply border border-black;
 	}
 
+	textarea:focus {
+		@apply text-gray-600;
+	}
+
 	input:focus-within + label,
 	textarea:focus-within + label {
-		@apply top-0 -translate-y-1/2 text-gray-500 bg-white;
+		@apply top-0 -translate-y-1/2 text-gray-800 bg-white;
 	}
 }
 
