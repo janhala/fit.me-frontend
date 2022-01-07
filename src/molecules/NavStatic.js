@@ -1,8 +1,8 @@
-import { NavLink, ProfileImage } from "@src/atoms";
+import { NavLink } from "@src/atoms";
 import { useRouter } from "next/router";
 import { ButtonLink } from "@src/atoms";
 
-export function NavStatic({ routes, toggled }) {
+export function NavStatics({ routes, toggled }) {
 	const router = useRouter();
 	return (
 		<nav
@@ -16,17 +16,14 @@ export function NavStatic({ routes, toggled }) {
 				</NavLink>
 			))}
 			<div className="flex md:hidden space-x-2 items-center">
-				<ButtonLink variant="base" isOutline={true} href="/registrace">
-					Registrace
-				</ButtonLink>
-				<ButtonLink variant="base" isOutline={false} href="/prihlasit-se">
-					Přihlásit se
+				<ButtonLink variant="base" isOutline={true} href="/prihlasit-se">
+					Odhlásit se
 				</ButtonLink>
 			</div>
 		</nav>
 	);
 }
 
-NavStatic.defaultProps = {
+NavStatics.defaultProps = {
 	routes: [{ name: "desc name", path: "#", text: "Link text" }],
 };

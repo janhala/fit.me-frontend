@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { H3, IconButton } from "@src/atoms";
 import { DescriptionList, RatingIndicator } from "@src/molecules";
-import { disableScroll, enableScroll } from "@src/utils/handleScroll";
 
-export function DetailCard({ descriptionItems, rating = 0 }) {
+export function DetailCard({ descriptionItems, rating = true }) {
 	const [toggled, setToggled] = useState(false);
 
 	useEffect(() => {
 		if (toggled) {
-			disableScroll();
+			document.body.style.overflow = "hidden";
 		} else {
-			enableScroll();
+			document.body.style.overflow = "auto";
 		}
 	}, [toggled]);
 
@@ -30,13 +29,8 @@ export function DetailCard({ descriptionItems, rating = 0 }) {
 			>
 				<div className="bg-white shadow rounded-md sm:rounded-lg max-w-sm max-h-[75vh] flex flex-col">
 					<div className="relative px-4 py-5 sm:px-6 overflow-visible">
-						<H3 variant="small">Detail</H3>
-						{rating && (
-							<div className="flex gap-2">
-								<RatingIndicator ratingValue={rating} className="mt-2" />
-								<span className="text-xs text-gray-500 mt-1">({rating})</span>
-							</div>
-						)}
+						<H3 variant="small">Detail trenéra</H3>
+						{rating && <RatingIndicator />}
 						<div className="absolute -bottom-px right-full md:hidden border-l border-t border-b rounded-l-md bg-white">
 							<IconButton type="button" onClick={() => setToggled(!toggled)} className="px-4 py-4">
 								<svg
@@ -90,5 +84,4 @@ DetailCard.defaultProps = {
 			value: "Po-Ne: 6:00 - 17:00",
 		},
 	],
-	rating: 4,
 };

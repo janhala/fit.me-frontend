@@ -1,5 +1,3 @@
-import { RatingIndicator } from ".";
-
 export function RatingItem({ ratingItem }) {
 	const calculateTime = (date) => {
 		const now = new Date();
@@ -66,12 +64,9 @@ export function RatingItem({ ratingItem }) {
 					alt={`Avatar ${ratingItem.user.name}`}
 				/>
 				<div className="flex-1">
-					<div className="flex gap-4">
-						<div>
-							<div className="text-sm font-medium text-gray-900">{ratingItem.user.name}</div>
-							<p className="mt-0.5 text-sm text-gray-500">{calculateTime(ratingItem.submitedAt)}</p>
-						</div>
-						<RatingIndicator ratingValue={ratingItem.rating} />
+					<div>
+						<div className="text-sm font-medium text-gray-900">{ratingItem.user.name}</div>
+						<p className="mt-0.5 text-sm text-gray-500">{calculateTime(ratingItem.submitedAt)}</p>
 					</div>
 					<div className="mt-2 text-sm text-gray-700">
 						<p>{ratingItem.text}</p>

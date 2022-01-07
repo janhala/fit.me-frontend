@@ -3,23 +3,7 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
 	mode: "jit",
-	purge: {
-		content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
-		safelist: [
-			"text-green-800",
-			"bg-green-100",
-			"text-lime-800",
-			"bg-lime-100",
-			"text-red-800",
-			"bg-red-100",
-			"text-pink-800",
-			"bg-pink-100",
-			"text-yellow-800",
-			"bg-yellow-100",
-			"text-purple-800",
-			"bg-purple-100",
-		],
-	},
+	purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		colors: {
@@ -47,11 +31,6 @@ module.exports = {
 			},
 			zIndex: {
 				100: "100",
-				110: "110",
-			},
-			height: {
-				...tailwindcssDefaults.height,
-				screen80: "80vh",
 			},
 		},
 	},

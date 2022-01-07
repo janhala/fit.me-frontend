@@ -1,16 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import Router from "next/router";
 import { useState } from "react";
 
-import { Button, ButtonLink, Hamburger } from "@src/atoms";
-import { NavApp, ProfilePopup } from "@src/molecules";
+import { ButtonLink, Hamburger } from "@src/atoms";
+import { NavStatics } from "@src/molecules";
 import { APPROUTES } from "@src/constants";
-
-function logout() {
-	localStorage.removeItem("token");
-	Router.push("/prihlasit-se");
-}
 
 export function NavBarApp({}) {
 	const [toggled, setToggled] = useState(false);
@@ -28,15 +22,14 @@ export function NavBarApp({}) {
 							</a>
 						</Link>
 					</div>
-					<NavApp toggled={toggled} routes={APPROUTES} />
+					<NavStatics toggled={toggled} routes={APPROUTES} />
 					<div className="absolute right-0 md:hidden">
 						<Hamburger toggle={toggle} toggled={toggled} />
 					</div>
 					<div className="hidden md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
-						<ProfilePopup />
-						<Button isOutline={true} onClickHandler={logout}>
+						<ButtonLink variant="base" isOutline={true} href="/prihlasit-se">
 							Odhlásit se
-						</Button>
+						</ButtonLink>
 					</div>
 				</div>
 			</div>
